@@ -1,0 +1,80 @@
+.top-three-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background: linear-gradient(to top, #fcb045, #fd1d1d, #833ab4);
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+}
+
+.top-card {
+  width: 120px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 15px;
+  background: white;
+  color: black;
+  position: relative;
+}
+
+.top-card .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid gold;
+}
+
+.top-card .points {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.top-card .points img {
+  width: 20px;
+}
+
+.rank-1 {
+  transform: scale(1.2);
+  z-index: 2;
+}
+
+.leaderboard-list {
+  background: #fff9f0;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  color: black;
+}
+
+.user-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0;
+  font-size: 16px;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.rank {
+  font-weight: bold;
+  width: 30px;
+}
+
+.points-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
