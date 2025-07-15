@@ -1,80 +1,59 @@
-.top-three-container {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  background: linear-gradient(to top, #fcb045, #fd1d1d, #833ab4);
-  padding: 20px;
-  border-radius: 20px;
-  color: white;
-}
-
-.top-card {
-  width: 120px;
-  text-align: center;
+.leaderboard-container {
+  margin-top: 10px;
   padding: 10px;
-  border-radius: 15px;
-  background: white;
-  color: black;
-  position: relative;
+  background-color: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.top-card .avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 3px solid gold;
-}
-
-.top-card .points {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  margin-top: 5px;
-}
-
-.top-card .points img {
-  width: 20px;
-}
-
-.rank-1 {
-  transform: scale(1.2);
-  z-index: 2;
+.leaderboard-container h2 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  text-align: center;
+  color: #333;
 }
 
 .leaderboard-list {
-  background: #fff9f0;
-  padding: 20px;
-  border-radius: 15px;
-  margin-top: 20px;
-  color: black;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.user-row {
+.leaderboard-item {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin: 12px 0;
-  font-size: 16px;
-  padding: 8px 12px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.avatar-small {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-}
-
-.rank {
-  font-weight: bold;
-  width: 30px;
-}
-
-.points-row {
-  display: flex;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  font-size: 18px;
   align-items: center;
-  gap: 5px;
+  border: #333 1px solid;
+  border-radius: 5px;
+  margin: 8px 40px;
+}
+
+.rank-1 {
+  font-size: 26px;
+  font-weight: bold;
+  background: #ffe680;
+  border-radius: 8px;
+  margin: 8px 0px;
+}
+
+.rank-2 {
+  font-size: 22px;
+  background: #e6e6e6;
+  margin: 8px 15px;
+}
+
+.rank-3 {
+  font-size: 20px;
+  background: #ffd9b3;
+  margin: 8px 30px;
+}
+
+.rank,
+.name,
+.points {
+  flex: 1;
+  text-align: center;
 }

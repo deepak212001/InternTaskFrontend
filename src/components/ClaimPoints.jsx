@@ -1,22 +1,25 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import "./ClaimPoints.css";
 
 const ClaimPoints = ({ users, selectedUser, setSelectedUser, onClaim }) => {
+
   return (
-    <div style={{ marginBottom: "20px" }}>
+    <div className="claim-container">
       <select
+        className="claim-select"
         value={selectedUser}
         onChange={(e) => setSelectedUser(e.target.value)}
       >
         <option value="">-- Select User --</option>
-        {users.map((u) => (
-          <option key={u._id} value={u._id}>
-            {u.name}
-          </option>
+        {users.map((user) => (
+          <option key={user._id} value={user._id}>{user.name}</option>
         ))}
       </select>
-      <button onClick={onClaim} style={{ marginLeft: "10px" }}>
-        Claim Points
+
+      <button className="spin-button" onClick={onClaim}>
+        Claim
       </button>
+
     </div>
   );
 };

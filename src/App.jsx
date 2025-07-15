@@ -3,7 +3,6 @@ import axios from "axios";
 import AddUserForm from "./components/AddUserForm.jsx";
 import ClaimPoints from "./components/ClaimPoints.jsx";
 import LeaderboardList from "./components/Leaderboard.jsx";
-import TopThree from "./components/TopThree.jsx";
 import History from "./components/History.jsx";
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("https://interntaskbackend.onrender.com/api/users");
+      const res = await axios.get("http://localhost:3000/api/users");
       console.log("Fetched Users:", res.data);
       setUsers(res.data);
     } catch (err) {
@@ -23,12 +22,12 @@ function App() {
   };
 
   const fetchLeaderboard = async () => {
-    const res = await axios.get("https://interntaskbackend.onrender.com/api/leaderboard");
+    const res = await axios.get("http://localhost:3000/api/leaderboard");
     setLeaderboard(res.data);
   };
 
   const fetchHistory = async () => {
-    const res = await axios.get("https://interntaskbackend.onrender.com/api/history");
+    const res = await axios.get("http://localhost:3000/api/history");
     console.log("Fetched History:", res.data);
     setHistory(res.data);
   };
@@ -41,7 +40,7 @@ function App() {
 
   const handleClaim = async () => {
     if (!selectedUser) return alert("Please select a user");
-    const res = await axios.post("https://interntaskbackend.onrender.com/api/claim", {
+    const res = await axios.post("http://localhost:3000/api/claim", {
       userId: selectedUser,
     });
     alert(`${res.data.user.name} got ${res.data.points} points!`);
@@ -52,14 +51,23 @@ function App() {
 
 
   const handleUserAdd = async (name) => {
-    await axios.post("https://interntaskbackend.onrender.com/api/adduser", { name });
-    fetchUsers();
-    fetchLeaderboard();
+    try {
+      const res = await axios.post("http://localhost:3000/api/adduser", { name });
+      alert(`${res.data.name} added successfully!`);
+      console.log("User added:", res.data, res);
+      fetchUsers();
+      fetchLeaderboard();
+    } catch (err) {
+      if (err.response && err.response.status === 409) {
+        alert("⚠️ User already exists!");
+      } else {
+        alert("Something went wrong while adding the user.");
+      }
+    }
   };
 
   return (
     <div style={{
-      margin: "0px",
       maxWidth: "600px",
       margin: "auto",
       textAlign: "center",

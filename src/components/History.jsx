@@ -1,10 +1,11 @@
 import React from "react";
+import "./History.css";
 
 const History = ({ history }) => {
   return (
-    <div>
+    <div className="history-container">
       <h2>📋 Claim History</h2>
-      <table border="1" cellPadding="8">
+      <table className="history-table">
         <thead>
           <tr>
             <th>User</th>
@@ -15,7 +16,7 @@ const History = ({ history }) => {
         <tbody>
           {history.map((h, index) => (
             <tr key={index}>
-              <td>{h.userId.name}</td>
+              <td>{h.userId?.name || "N/A"}</td>
               <td>{h.points}</td>
               <td>{new Date(h.claimedAt).toLocaleString()}</td>
             </tr>

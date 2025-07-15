@@ -1,25 +1,26 @@
 import React, { useState } from "react";
+import "./AddUserForm.css";
 
 const AddUserForm = ({ onAdd }) => {
   const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name.trim()) return;
+    if (!name.trim()) return alert("Please enter a user name");
     onAdd(name);
     setName("");
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
+    <form className="add-user-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Enter new user name"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        required
+        className="add-user-input"
       />
-      <button type="submit" style={{ marginLeft: "10px" }}>Add User</button>
+      <button type="submit" className="add-user-button">➕ Add User</button>
     </form>
   );
 };
