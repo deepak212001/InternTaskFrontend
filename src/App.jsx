@@ -13,7 +13,7 @@ function App() {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/users");
+      const res = await axios.get("/api/users");
       console.log("Fetched Users:", res.data);
       setUsers(res.data);
     } catch (err) {
@@ -22,12 +22,12 @@ function App() {
   };
 
   const fetchLeaderboard = async () => {
-    const res = await axios.get("http://localhost:3000/api/leaderboard");
+    const res = await axios.get("/api/leaderboard");
     setLeaderboard(res.data);
   };
 
   const fetchHistory = async () => {
-    const res = await axios.get("http://localhost:3000/api/history");
+    const res = await axios.get("/api/history");
     console.log("Fetched History:", res.data);
     setHistory(res.data);
   };
@@ -40,7 +40,7 @@ function App() {
 
   const handleClaim = async () => {
     if (!selectedUser) return alert("Please select a user");
-    const res = await axios.post("http://localhost:3000/api/claim", {
+    const res = await axios.post("/api/claim", {
       userId: selectedUser,
     });
     alert(`${res.data.user.name} got ${res.data.points} points!`);
@@ -52,7 +52,7 @@ function App() {
 
   const handleUserAdd = async (name) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/adduser", { name });
+      const res = await axios.post("/api/adduser", { name });
       alert(`${res.data.name} added successfully!`);
       console.log("User added:", res.data, res);
       fetchUsers();
